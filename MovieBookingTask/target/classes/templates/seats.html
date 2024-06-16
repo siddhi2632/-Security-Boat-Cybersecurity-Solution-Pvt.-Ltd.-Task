@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Seats</title>
+</head>
+<body>
+    <h1>Select Seats</h1>
+    <form th:action="@{/book-seat}" method="post">
+        <div th:each="seat : ${seats}">
+            <input type="radio" th:field="*{seatId}" th:value="${seat.id}" />
+            <span th:text="'Row: ' + ${seat.row} + ', Seat: ' + ${seat.number}"></span>
+            <span th:if="${seat.booked}"> (Booked)</span>
+        </div>
+        <button type="submit">Book Seat</button>
+    </form>
+</body>
+</html>

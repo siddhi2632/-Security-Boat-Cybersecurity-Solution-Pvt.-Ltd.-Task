@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin Seats</title>
+</head>
+<body>
+    <h1>Manage Seats</h1>
+    <ul>
+        <li th:each="seat : ${seats}">
+            <span th:text="'Row: ' + ${seat.row} + ', Seat: ' + ${seat.number}"></span>
+            <span th:if="${seat.booked}"> (Booked)</span>
+        </li>
+    </ul>
+</body>
+</html>

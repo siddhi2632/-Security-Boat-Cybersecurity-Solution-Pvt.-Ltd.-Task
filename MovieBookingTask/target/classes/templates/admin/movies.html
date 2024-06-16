@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin Movies</title>
+</head>
+<body>
+    <h1>Manage Movies</h1>
+    <ul>
+        <li th:each="movie : ${movies}">
+            <a th:href="@{/admin/seats/{id}(id=${movie.id})}" th:text="${movie.title}"></a>
+            <span th:text="${movie.genre}"></span>
+            <span th:text="${#dates.format(movie.showtime, 'yyyy-MM-dd HH:mm')}"></span>
+        </li>
+    </ul>
+</body>
+</html>
